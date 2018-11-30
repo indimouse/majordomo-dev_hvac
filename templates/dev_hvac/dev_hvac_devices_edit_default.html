@@ -1,0 +1,127 @@
+<!-- Table 'dev_hvac_devices' edit -->
+<form action="?" method="post" enctype="multipart/form-data" name="frmEdit" class="form-horizontal">
+[#if MESSAGE!=""#]
+<div class="alert alert-info">[#MESSAGE#]</div>
+[#endif MESSAGE#]
+[#if OK#]
+<div class="alert alert-success"><#LANG_DATA_SAVED#></div>
+[#endif OK#]
+[#if ERR#]
+<div class="alert alert-error"><#LANG_FILLOUT_REQURED#></div>
+[#endif ERR#]
+<fieldset>
+[#if ID=""#]
+<legend><#LANG_NEW_RECORD#></legend>
+[#endif ID#]
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_TYPE#] style="color:red;font-weight:bold"[#endif#]>
+	Тип устройства:
+ </label>
+ <div class="col-lg-4">
+	 <select class="form-control" name="type">
+	   <option value="">Выберите устройство
+	   <option value="CH"[#if TYPE=="CH"#] selected[#endif#]>Кондиционеры Cooper&Hunter (Smart Wi-Fi)
+	   <option value="Gree"[#if TYPE=="Gree"#] selected[#endif#]>Кондиционеры Gree или Cooper&Hunter (Gree)
+	 </select>
+ </div>
+</div>
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_TITLE#] style="color:red;font-weight:bold"[#endif#]>
+ <#LANG_TITLE#>:
+ (*)
+ </label>
+ <div class="col-lg-4"><input type="text" class="form-control" name="title" value="[#TITLE#]" id="title"></div>
+</div>
+
+<!-- IP (varchar) -->
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_IP#] style="color:red;font-weight:bold"[#endif#]>
+ IP устройства:
+ </label>
+ <div class="col-lg-4"><input type="text" class="form-control" name="ip" value="[#IP#]" id="ip"></div>
+</div>
+
+<!-- DEVTYPE (varchar) -->
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_DEVTYPE#] style="color:red;font-weight:bold"[#endif#]>
+ Марка устройства:
+ </label>
+ <div class="col-lg-4"><input type="text" class="form-control" name="devtype" value="[#DEVTYPE#]" id="devtype"></div>
+</div>
+
+<!-- MAC (varchar) -->
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_MAC#] style="color:red;font-weight:bold"[#endif#]>
+ MAC:
+ </label>
+ <div class="col-lg-4"><input type="text" class="form-control" name="mac" value="[#MAC#]" id="mac"></div>
+</div>
+
+<!-- KEYS (varchar) -->
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_KEYS#] style="color:red;font-weight:bold"[#endif#]>
+ KEY:
+ </label>
+ <div class="col-lg-4"><input type="text" class="form-control" name="keys" value="[#KEYS#]" id="keys"></div>
+</div>
+
+<div class="form-group">
+ <label class="col-lg-3 control-label">
+Обновлять каждые:
+ </label>
+ 
+ 
+ 
+	<div class="btn-group col-lg-4" data-toggle="buttons">
+		<label class="btn [#if CHTIME=="none"#]btn-primary[#else#]btn-default[#endif#]">
+			<input type="radio" name="chtime" value="none" [#if CHTIME=="none"#] checked[#endif#]>None
+		</label>
+		<label class="btn [#if CHTIME=="1s"#]btn-primary[#else#]btn-danger[#endif#]">
+			<input type="radio" name="chtime" value="1s" [#if CHTIME=="1s"#] checked[#endif#]>1s
+		</label>
+		<label class="btn [#if CHTIME=="5s"#]btn-primary[#else#]btn-default[#endif#]">
+			<input type="radio" name="chtime" value="5s" [#if CHTIME=="5s"#] checked[#endif#]>5s
+		</label>
+		<label class="btn [#if CHTIME=="20s"#]btn-primary[#else#]btn-default[#endif#]">
+			<input type="radio" name="chtime" value="20s" [#if CHTIME=="20s"#] checked[#endif#]>20s
+		</label>
+		<label class="btn [#if CHTIME=="1m"#]btn-primary[#else#]btn-default[#endif#]">
+			<input type="radio" name="chtime" value="1m" [#if CHTIME=="1m"#] checked[#endif#]>1m
+		</label>
+		<label class="btn [#if CHTIME=="10m"#]btn-primary[#else#]btn-default[#endif#]">
+			<input type="radio" name="chtime" value="10m" [#if CHTIME=="10m"#] checked[#endif#]>10m
+		</label>
+		<label class="btn [#if CHTIME=="1h"#]btn-primary[#else#]btn-default[#endif#]">
+			<input type="radio" name="chtime" value="1h" [#if CHTIME=="1h"#] checked[#endif#]>1h
+		</label>
+	</div>
+</div>
+
+<!-- UPDATED (datetime) -->
+<div class="form-group">
+ <label class="col-lg-3 control-label"[#if ERR_UPDATED#] style="color:red;font-weight:bold"[#endif#]>
+ <#LANG_UPDATED#>:
+ </label>
+ <div class="col-lg-4">
+<input class="form-control" id="disabledInput" type="text" placeholder="[#UPDATED#]" disabled>
+ </div>
+</div>
+[#module name="linkedobject" object_field="linked_object"#]
+<div class="form-group">
+        <div class="col-lg-offset-3 col-lg-4">
+ [#if ID!=""#]
+ <button type="submit" name="subm" value="Submit" class="btn btn-primary"><#LANG_SUBMIT#></button>
+ [#else ID#]
+ <button type="submit" name="subm" value="Add" class="btn btn-primary"><#LANG_ADD#></button>
+ [#endif ID#]
+ <a href="?data_source=<#DATA_SOURCE#>" class="btn btn-default "><#LANG_CANCEL#></a>
+<input type="hidden" name="id" value="<#ID#>">
+<input type="hidden" name="view_mode" value="<#VIEW_MODE#>">
+<input type="hidden" name="edit_mode" value="<#EDIT_MODE#>">
+<input type="hidden" name="mode" value="update">
+<input type="hidden" name="data_source" value="<#DATA_SOURCE#>">
+<input type="hidden" name="tab" value="<#TAB#>">
+</div>
+</div>
+</fieldset>
+</form>
