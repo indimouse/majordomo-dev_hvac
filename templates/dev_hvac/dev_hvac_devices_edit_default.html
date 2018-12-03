@@ -13,18 +13,14 @@
 [#if ID=""#]
 <legend><#LANG_NEW_RECORD#></legend>
 [#endif ID#]
+<!-- TYPE (varchar) -->
 <div class="form-group">
  <label class="col-lg-3 control-label"[#if ERR_TYPE#] style="color:red;font-weight:bold"[#endif#]>
-	Тип устройства:
+ Тип устройства:
  </label>
- <div class="col-lg-4">
-	 <select class="form-control" name="type">
-	   <option value="">Выберите устройство
-	   <option value="CH"[#if TYPE=="CH"#] selected[#endif#]>Кондиционеры Cooper&Hunter (Smart Wi-Fi)
-	   <option value="Gree"[#if TYPE=="Gree"#] selected[#endif#]>Кондиционеры Gree или Cooper&Hunter (Gree)
-	 </select>
- </div>
+<div class="col-lg-4"><input class="form-control" id="disabledInput" name="type" type="text" placeholder="[#TYPE#]" disabled> </div>
 </div>
+
 <div class="form-group">
  <label class="col-lg-3 control-label"[#if ERR_TITLE#] style="color:red;font-weight:bold"[#endif#]>
  <#LANG_TITLE#>:

@@ -9,14 +9,15 @@ class hvac{
 	protected $count;
 	protected $id = array(0, 0, 0, 0);
 	protected $devtype;
+
 	const DEFAULT_KEY = 'a3K8Bx%2r8Y7#xDh';
 
-	function __construct($h = "", $m = "", $d = 0, $k = '') {
+	function __construct($h = "", $m = "", $d = 0, $k = "") {
 
 		$this->host = $h;
 		$this->devtype = is_string($d) ? hexdec($d) : $d;
 		$this->keys = $k;
-
+	
 		if(is_array($m)){
 
 			$this->mac = $m;      		
@@ -41,7 +42,7 @@ class hvac{
 			
 	}
 
-	public static function CreateDevice($h = "", $m = "", $d = 0, $k = ''){
+	public static function CreateDevice($h = "", $m = "", $d = 0, $k = ""){
 
 		switch (self::model($d)) {
 			case 0:
@@ -619,7 +620,7 @@ class CH extends hvac{
 
 class Gree extends hvac{
 
-	function __construct($h = "", $m = "", $d = 0x2711, $k = '') {
+	function __construct($h = "", $m = "", $d = 0x2711, $k = "") {
 
 		parent::__construct($h, $m, $d, $k);
 

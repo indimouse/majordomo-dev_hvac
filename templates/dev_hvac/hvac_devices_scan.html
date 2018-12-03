@@ -27,22 +27,13 @@
     <tbody>
     [#begin RESULT#]
     <tr>
+
      <td style="vertical-align:middle">
-      [#if LOGO!=""#]
-      <img src=" [#LOGO#]" alt="Device Logo" width="32" height="32">
+      [#if TYPE!=""#]
+      [#TYPE#]
       [#else#]
       &nbsp;
       [#endif#]
-     </td>
-     <td style="vertical-align:middle">
-      <b>
-       [#if NAME!=""#]
-       [#NAME#]
-       [#else#]
-       [#TITLE#]
-       [#endif#]
-
-       </a></b>
      </td>
      <td style="vertical-align:middle">
       <b>
@@ -51,19 +42,11 @@
        [#else#]
        [#TITLE#]
        [#endif#]
-
        </a></b>
      </td>
      <td style="vertical-align:middle">
       [#if HOST!=""#]
      [#HOST#]
-      [#else#]
-      &nbsp;
-      [#endif#]
-     </td>
-     <td style="vertical-align:middle">
-      [#if MODEL!=""#]
-      [#MODEL#]
       [#else#]
       &nbsp;
       [#endif#]
@@ -78,7 +61,7 @@
      <td style="vertical-align:middle">
       <div>
        [#if "<#ACTION#>"=="admin"#]
-       <a href="?view_mode=edit_dev_hvac_devices&mode=add_from_scan&mac=[#MAC#]&devtype=[#DEVTYPE#]&ip=[#HOST#]&title=[#NAME#]&model=[#MODEL#]&keys=[#KEYS#]" class="btn btn-default" title="Add"><i class="glyphicon glyphicon-plus"></i></a>
+       <a href="?view_mode=edit_dev_hvac_devices&mode=add_from_scan&mac=[#MAC#]&devtype=[#DEVTYPE#]&type=[#TYPE#]&ip=[#HOST#]&title=[#NAME#]&keys=[#KEYS#]" class="btn btn-default" title="Add"><i class="glyphicon glyphicon-plus"></i></a>
        [#endif ACTION#]
       </div>
      </td>

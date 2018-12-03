@@ -35,11 +35,10 @@
 
   if ($this->mode=='update') {
    $ok=1;
-   
    if ($this->tab=='') {
-  //updating 'LANG_TITLE' (varchar, required)
    global $type;
    $rec['TYPE']=$type;
+  //updating 'LANG_TITLE' (varchar, required)
    global $title;
    $rec['TITLE']=$title;
    if ($rec['TITLE']=='') {
@@ -67,7 +66,6 @@
    global $updated_hours;
    $rec['UPDATED']=toDBDate($updated_date)." $updated_hours:$updated_minutes:00";
    }
-   
   //UPDATING RECORD
    if ($ok) {
     if ($rec['ID']) {

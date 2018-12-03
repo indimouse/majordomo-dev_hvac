@@ -41,7 +41,7 @@ $devices = hvac::Discover();
 	$obj['NAME'] = $device->name();
 	$obj['MAC'] = $device->mac();
 	$obj['HOST'] = $device->host();
-	$obj['MODEL'] = $device->devmodel();
+	$obj['TYPE'] = $device->devmodel();
 	array_push($result, $obj);
 }
 
@@ -53,7 +53,7 @@ $devices = hvac::DiscoverGree();
 	$obj['NAME'] = $device->name();
 	$obj['MAC'] = $device->macgree();
 	$obj['HOST'] = $device->host();
-	$obj['MODEL'] = $device->devmodel();
+	$obj['TYPE'] = $device->devmodel();
 	$obj['KEYS'] = $device->keys();
 	array_push($result, $obj);
 }

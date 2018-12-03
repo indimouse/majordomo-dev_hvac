@@ -67,6 +67,7 @@ function getParams() {
   global $host;
   global $title;
   global $devtype;
+  global $type;
   global $view_mode;
   global $edit_mode;
   global $data_source;
@@ -93,6 +94,9 @@ function getParams() {
   }
   if (isset($devtype)) {
    $this->devtype=$devtype;
+  }
+  if (isset($type)) {
+   $this->type=$type;
   }
   if (isset($view_mode)) {
    $this->view_mode=$view_mode;
